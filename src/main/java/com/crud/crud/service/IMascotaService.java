@@ -1,5 +1,6 @@
 package com.crud.crud.service;
 
+import com.crud.crud.dto.MascotaDuenioDTO;
 import com.crud.crud.model.Mascota;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +16,12 @@ public interface IMascotaService {
 
     public Mascota findMascota(Long id);
 
-    public void editMascota(Long idOr, Long idMasco, String nuevoNombre, String nuevaEspecie,
+    public void editMascota(Long idOr, String nuevoNombre, String nuevaEspecie,
                             String nuevaRaza, String nuevoColor);
 
+    public void editMascota(Mascota masc);
 
+    public List<Mascota> listarPerroCaniches();
+
+    public MascotaDuenioDTO traerDatosCombinados(Long id);
 }
