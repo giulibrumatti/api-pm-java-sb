@@ -9,8 +9,6 @@ import java.util.List;
  private Mascota unaMascota;
  (Cuando tenemos una relacion OneToOne)
  */
-@Getter
-@Setter
 public class Persona {
     //@Id
     //@GeneratedValue(strategy = GenerationType.AUTO)

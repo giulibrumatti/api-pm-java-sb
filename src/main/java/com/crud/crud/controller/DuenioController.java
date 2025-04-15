@@ -13,7 +13,7 @@ public class DuenioController {
     @Autowired
     private IDuenioService dueServ;
 
-    @PostMapping("/dueños/crear")
+    @PostMapping("/duenios/crear")
     public String crearDuenio(Duenio due){
         dueServ.saveDuenio(due);
         return "El dueño ingresado se creo correctamente";
