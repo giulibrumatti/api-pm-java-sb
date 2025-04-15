@@ -13,8 +13,8 @@ public class DuenioController {
     @Autowired
     private IDuenioService dueServ;
 
-    @PostMapping("/duenios/crear")
-    public String crearDuenio(Duenio due){
+    @PostMapping("/dueños/crear")
+    public String crearDuenio(@RequestBody Duenio due){
         dueServ.saveDuenio(due);
         return "El dueño ingresado se creo correctamente";
     }
@@ -26,13 +26,13 @@ public class DuenioController {
     }
 
     @DeleteMapping("/dueños/eliminar/{id}")
-    public String eliminarDuenio(Long id){
+    public String eliminarDuenio(@PathVariable("id") Long id){
         dueServ.deleteDuenio(id);
         return "El dueño fue eliminado con exito";
     }
 
     @PutMapping("/dueños/editar")
-    public Duenio editarDuenio(Duenio due){
+    public Duenio editarDuenio(@RequestBody Duenio due){
         dueServ.saveDuenio(due);
         return dueServ.findDuenio(due.getIdDue());
     }

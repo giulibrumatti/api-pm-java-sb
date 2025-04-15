@@ -49,9 +49,14 @@ public class MascotaController {
         return "La mascota fue eliminada correctamente";
     }
 
-    @GetMapping("/mascotas/duenio/{id}")
-    public MascotaDuenioDTO traerDatosCombinados(@PathVariable("id") Long id){
-        return mascoSer.traerDatosCombinados(id);
+    @GetMapping("/mascotas/dueños")
+    public List<MascotaDuenioDTO> traerDatosCombinados(){
+        return mascoSer.traerDatosCombinados();
+    }
+
+    @GetMapping("/mascotas/traerPerrosCaniches")
+    public List<Mascota> listarPerrosCaniches(){
+        return mascoSer.listarPerroCaniches();
     }
 
 

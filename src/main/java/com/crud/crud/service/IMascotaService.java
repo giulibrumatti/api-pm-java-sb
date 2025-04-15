@@ -23,5 +23,5 @@ public interface IMascotaService {
 
     public List<Mascota> listarPerroCaniches();
 
-    public MascotaDuenioDTO traerDatosCombinados(Long id);
+    public List<MascotaDuenioDTO> traerDatosCombinados();
 }

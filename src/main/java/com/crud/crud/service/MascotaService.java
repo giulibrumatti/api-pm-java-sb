@@ -57,31 +57,33 @@ public class MascotaService implements IMascotaService{
         List<Mascota> perrosCaniches = new ArrayList<Mascota>();
         List<Mascota> listaMascotas = this.getMascotas();
 
-        String raza = "caniche";
-        String especie = "perro";
-
         for (Mascota masc : listaMascotas){
-            if(masc.getEspecie().equals(especie) && masc.getRaza().equals(raza)){
+            if(masc.getEspecie().equalsIgnoreCase("perro") && masc.getRaza().equalsIgnoreCase("caniche")){
                 perrosCaniches.add(masc);
             }
         }
-
         return perrosCaniches;
     }
 
     @Override
-    public MascotaDuenioDTO traerDatosCombinados(Long id) {
+    public List<MascotaDuenioDTO> traerDatosCombinados() {
+        List<Mascota> listaMascotas = this.getMascotas();
+        List<MascotaDuenioDTO> listaMascoConDue = new ArrayList<MascotaDuenioDTO>();
 
-        MascotaDuenioDTO mascDueDTO = new MascotaDuenioDTO();
-        Mascota masc = this.findMascota(id);
-        Duenio due = masc.getDuenio();
-        mascDueDTO.setRaza(masc.getRaza());
-        mascDueDTO.setEspecie(masc.getEspecie());
-        mascDueDTO.setNombreMascota(masc.getNombre());
-        mascDueDTO.setNombreMascota(due.getNombre());
-        mascDueDTO.setApellidoDuenio(due.getApellido());
+        for(Mascota masc : listaMascotas){
+            MascotaDuenioDTO mascDueDTO = new MascotaDuenioDTO();
+            Duenio due = masc.getDuenio();
+            mascDueDTO.setRaza(masc.getRaza());
+            mascDueDTO.setEspecie(masc.getEspecie());
+            mascDueDTO.setNombreMascota(masc.getNombre());
+            mascDueDTO.setNombreDuenio(due.getNombre());
+            mascDueDTO.setApellidoDuenio(due.getApellido());
+            listaMascoConDue.add(mascDueDTO);
+        }
 
-        return mascDueDTO;
+
+
+        return listaMascoConDue;
     }
 
 
