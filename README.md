@@ -1,4 +1,4 @@
-###Clínica Veterinaria
+### Clínica Veterinaria
 
 Una clínica veterinaria cuenta con un sistema donde posee dos clases: Mascota y Dueño. Cada mascota puede tener asociado un solo un dueño como responsable.
 
